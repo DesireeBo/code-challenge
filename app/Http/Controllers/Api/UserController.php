@@ -1,6 +1,5 @@
 <?php
 
-//namespace App\Http\Controllers;
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
@@ -29,8 +28,7 @@ class UserController extends Controller
     {
         try {
             $value = $this->service->index();
-            return response()->json($value);
-
+            return $value;
         } catch (Exception $exception) {
             return response()->json([$exception]);
         }
@@ -41,8 +39,7 @@ class UserController extends Controller
     {
         try {
             $value = $this->service->searchByOrganizationId($id);
-            return response()->json($value);
-
+            return $value;
         } catch (Exception $exception) {
             return response()->json([$exception]);
         }
@@ -54,8 +51,7 @@ class UserController extends Controller
     {
         try {
             $value = $this->service->search($name);
-            return response()->json($value);
-
+            return $value;
         } catch (Exception $exception) {
             return response()->json([$exception]);
         }
