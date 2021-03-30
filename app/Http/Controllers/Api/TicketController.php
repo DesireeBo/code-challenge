@@ -1,13 +1,11 @@
 <?php
 
-//namespace App\Http\Controllers;
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\TicketService;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Throwable;
 
@@ -30,8 +28,7 @@ class TicketController extends Controller
     {
         try {
             $value = $this->service->index();
-            return response()->json($value);
-
+            return $value;
         } catch (Exception $exception) {
             return response()->json([$exception]);
         }
@@ -43,8 +40,7 @@ class TicketController extends Controller
     {
         try {
             $value = $this->service->searchByOrganizationId($id);
-            return response()->json($value);
-
+            return $value;
         } catch (Exception $exception) {
             return response()->json([$exception]);
         }
@@ -55,8 +51,7 @@ class TicketController extends Controller
     {
         try {
             $value = $this->service->search($subject);
-            return response()->json($value);
-
+            return $value;
         } catch (Exception $exception) {
             return response()->json([$exception]);
         }
