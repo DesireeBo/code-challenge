@@ -26,7 +26,7 @@ class TicketRepository extends BaseRepository
 
         $datas = array_filter($data);
 
-        $data = collect($datas)->where('organization_id', $id);
+        $data = collect($datas)->where('organization_id', $id)->pluck('subject');
 
         return response()->json($data);
 
