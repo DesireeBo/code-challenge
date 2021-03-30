@@ -35,7 +35,6 @@ Route::group(['middleware' => ['json.response']], function () {
     // json store routes list
     Route::middleware('auth:api')->group(function () {
 
-
         Route::get('/user', 'Api\UserController@index')->name('user');
         Route::get('/ticket', 'Api\TicketController@index')->name('user');
         Route::get('/organization', 'Api\OrganizationController@index')->name('user');
