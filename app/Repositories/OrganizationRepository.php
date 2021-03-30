@@ -31,8 +31,8 @@ class OrganizationRepository extends BaseRepository
         $datas = array_filter($data);
         $data_users = array_filter($data_user);
 
-        $data_ticket = collect($datas)->where('organization_id', $id);
-        $data_user = collect($data_users)->where('organization_id', $id);
+        $data_ticket = collect($datas)->where('organization_id', $id)->pluck('url');;
+        $data_user = collect($data_users)->where('organization_id', $id)->pluck('url');
 
         $value = array(
             $data_ticket,
