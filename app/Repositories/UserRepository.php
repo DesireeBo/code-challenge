@@ -28,7 +28,7 @@ class UserRepository extends BaseRepository
 
         $data = array_filter($json);
 
-        $data = collect($data)->where('organization_id', $id);
+        $data = collect($data)->where('organization_id', $id)->pluck('name');
 
         return response()->json($data);
 
@@ -57,8 +57,8 @@ class UserRepository extends BaseRepository
         $data_user_organization = collect($data_users)->where('organization_id', $data_organization_id->first())->pluck('name');
 
         $value = array(
-            $data_ticket_submitter->all(),
             $data_ticket->all(),
+            $data_ticket_submitter->all(),
             $data_user_organization->all()
         );
 
